@@ -41,6 +41,9 @@ Example:
 ```
 This will display tasks in a tabular format:
 
+![image](https://github.com/user-attachments/assets/97e2ab86-ac61-4295-81ec-9c34ae7a7809)
+
+
 ### Toggle Task Completion Status
 ```bash
 ./src.exe -toggle <task_id>
@@ -49,7 +52,7 @@ Example:
 ```bash
 ./src.exe -toggle 0
 ```
-This toggles the completion status of the task with ID `0`.
+This changes the completion status of the task with ID `0` from incomplete to complete or vice versa.
 
 ### Delete a Task
 ```bash
