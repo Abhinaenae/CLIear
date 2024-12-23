@@ -18,6 +18,10 @@ func (tasks *Tasks) add(title string) {
 }
 
 func (tasks *Tasks) validateIndex(index int) error {
+
+	if index == -5 {
+		return nil
+	}
 	if index < 0 || index >= len(*tasks) {
 		err := errors.New("invalid index")
 		fmt.Println(err)
@@ -31,6 +35,11 @@ func (tasks *Tasks) delete(index int) error {
 
 	if err := t.validateIndex(index); err != nil {
 		return err
+	}
+
+	if index == -5 {
+		*tasks = nil
+		return nil
 	}
 
 	//Removes the item and replaces contents with a new list without that item

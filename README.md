@@ -55,11 +55,19 @@ This toggles the completion status of the task with ID `0`.
 ```bash
 ./src.exe -del <task_id>
 ```
+
+If <task_id> is specified as -5, all tasks will be deleted.
+
 Example:
 ```bash
 ./src.exe -del 0
 ```
 This deletes the task with ID `0`.
+
+```bash
+./src.exe -del -5
+```
+This clears the task list.
 
 ### Invalid Command
 If you run the executable without any arguments, it will display an "Invalid command" message:
