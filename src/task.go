@@ -12,14 +12,3 @@ type Task struct {
 }
 
 type Tasks []Task
-
-func (tasks *Tasks) add(title string) {
-	task := Task{
-		Title:       title,
-		Completed:   false,
-		CompletedAt: nil,
-		CreatedAt:   time.Now(),
-	}
-
-	*tasks = append(*tasks, task)
-}

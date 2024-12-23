@@ -4,6 +4,7 @@ func main() {
 	tasks := Tasks{}
 	storage := NewStorage[Tasks]("tasks.json")
 	storage.Load(&tasks)
-	tasks.printTaskTable()
+	cmdFlags := NewCmdFlags()
+	cmdFlags.Execute(&tasks)
 	storage.Save(tasks)
 }

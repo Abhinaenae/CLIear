@@ -6,6 +6,17 @@ import (
 	"time"
 )
 
+func (tasks *Tasks) add(title string) {
+	task := Task{
+		Title:       title,
+		Completed:   false,
+		CompletedAt: nil,
+		CreatedAt:   time.Now(),
+	}
+
+	*tasks = append(*tasks, task)
+}
+
 func (tasks *Tasks) validateIndex(index int) error {
 	if index < 0 || index >= len(*tasks) {
 		err := errors.New("invalid index")
