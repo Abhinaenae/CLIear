@@ -4,6 +4,7 @@ CLIear is a **Command Line Interface (CLI)** application written in **Go** that 
 
 ## Features
 - **Add Tasks**: Create new tasks with a title.
+- **Edit Task names**: Edit existing tasks with a new title.
 - **List Tasks**: View a table of all tasks with details such as title, completion status, and timestamps.
 - **Toggle Tasks**: Mark tasks as completed or not completed.
 - **Delete Tasks**: Remove tasks from the list.
@@ -35,14 +36,23 @@ Example:
 ./src.exe -add "Fix feature 1" -pri 3
 ```
 
+### Edit a Task
+```bash
+./src.exe -edit <task_id>:"new_title"
+```
+Example:
+```bash
+./src.exe -edit <2>:"Fix: memory leak"
+```
+This edits the title of an existing task with id 2 to "Fix: memory leak"
+
 ### List Tasks
 ```bash
 ./src.exe -list
 ```
 This will display tasks in a tabular format:
 
-![image](https://github.com/user-attachments/assets/97e2ab86-ac61-4295-81ec-9c34ae7a7809)
-
+![image](https://github.com/user-attachments/assets/14331a88-be87-4001-b3da-27952414f7b7)
 
 ### Toggle Task Completion Status
 ```bash
