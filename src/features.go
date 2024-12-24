@@ -6,15 +6,23 @@ import (
 	"time"
 )
 
-func (tasks *Tasks) add(title string) {
+func (tasks *Tasks) add(title string, priority uint) error {
+	if priority < 1 || priority > 5 {
+		err := errors.New("invalid priority")
+		fmt.Println(err)
+		return err
+	}
 	task := Task{
 		Title:       title,
 		Completed:   false,
 		CompletedAt: nil,
 		CreatedAt:   time.Now(),
+		Priority:    priority,
 	}
 
 	*tasks = append(*tasks, task)
+
+	return nil
 }
 
 func (tasks *Tasks) validateIndex(index int) error {

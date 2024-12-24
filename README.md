@@ -28,11 +28,11 @@ Navigate to the directory containing the executable file, then use the following
 
 ### Add a Task
 ```bash
-./src.exe -add "Task Title"
+./src.exe -add "Task Title" -pri <priority_level[1-5]>
 ```
 Example:
 ```bash
-./src.exe -add "Fix feature 1"
+./src.exe -add "Fix feature 1" -pri 3
 ```
 
 ### List Tasks

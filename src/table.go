@@ -11,7 +11,7 @@ import (
 func (tasks *Tasks) printTaskTable() {
 	table := table.New(os.Stdout)
 	table.SetRowLines(false)
-	table.SetHeaders("#", "Title", "Completed", "Created At", "Completed At")
+	table.SetHeaders("#", "Title", "Completed", "Created At", "Completed At", "Priority")
 	for index, t := range *tasks {
 		completed := "❌"
 		completedAt := ""
@@ -23,7 +23,7 @@ func (tasks *Tasks) printTaskTable() {
 			}
 		}
 
-		table.AddRow(strconv.Itoa(index), t.Title, completed, t.CreatedAt.Format(time.RFC1123), completedAt)
+		table.AddRow(strconv.Itoa(index), t.Title, completed, t.CreatedAt.Format(time.RFC1123), completedAt, strconv.Itoa(int(t.Priority)))
 	}
 
 	table.Render()

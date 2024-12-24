@@ -13,6 +13,7 @@ type CmdFlags struct {
 	Del    int
 	Edit   string
 	Toggle int
+	Pri    uint
 	List   bool
 }
 
@@ -20,6 +21,7 @@ func NewCmdFlags() *CmdFlags {
 	cf := CmdFlags{}
 
 	flag.StringVar(&cf.Add, "add", "", "Add a new task; Specify title")
+	flag.UintVar(&cf.Pri, "pri", 1, "Set priority from 1-5; Lowest to Highest")
 	flag.StringVar(&cf.Edit, "edit", "", "Edit an existing task's title; Specify index and new title")
 	flag.IntVar(&cf.Del, "del", -1, "Delete an existing task; Specify by index")
 	flag.IntVar(&cf.Toggle, "toggle", -1, "Set an existing task's to be complete/incomplete; Specify by index")
@@ -34,7 +36,7 @@ func (cf *CmdFlags) Execute(tasks *Tasks) {
 	case cf.List:
 		tasks.printTaskTable()
 	case cf.Add != "":
-		tasks.add(cf.Add)
+		tasks.add(cf.Add, cf.Pri)
 	case cf.Edit != "":
 		parts := strings.SplitN(cf.Edit, ":", 2)
 		if len(parts) != 2 {
